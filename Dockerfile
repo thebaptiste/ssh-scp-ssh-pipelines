@@ -1,4 +1,4 @@
-FROM python:3.8.3-slim-buster
+FROM python:3.9.23-slim-bullseye
 
 LABEL "maintainer"="Scott Ng <thuongnht@gmail.com>"
 LABEL "repository"="https://github.com/cross-the-world/ssh-scp-ssh-pipelines"
@@ -9,7 +9,7 @@ LABEL "com.github.actions.description"="Pipeline: ssh -> scp -> ssh"
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="gray-dark"
 
-RUN export MIRROR_SNAPSHOT=y && apt-get update -y && \
+RUN apt-get update -y && \
   apt-get install -y ca-certificates openssh-client openssl sshpass
 
 COPY requirements.txt /requirements.txt
